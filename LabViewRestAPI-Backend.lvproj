@@ -12,9 +12,11 @@
 		<Property Name="server.vi.callsEnabled" Type="Bool">true</Property>
 		<Property Name="server.vi.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
-		<Item Name="Global.vi" Type="VI" URL="../../../../../D/Global.vi"/>
-		<Item Name="ValveCommand.ctl" Type="VI" URL="../ValveCommand.ctl"/>
-		<Item Name="ValveControlService" Type="Web Service">
+		<Item Name="DataTypes" Type="Folder">
+			<Item Name="RequestToServo.ctl" Type="VI" URL="../DataTypes/RequestToServo.ctl"/>
+		</Item>
+		<Item Name="Main.vi" Type="VI" URL="../Main.vi"/>
+		<Item Name="ServoControlService" Type="Web Service">
 			<Property Name="ws.autoIncrementVersion" Type="Bool">true</Property>
 			<Property Name="ws.disconnectInline" Type="Bool">true</Property>
 			<Property Name="ws.disconnectTypeDefs" Type="Bool">false</Property>
@@ -33,7 +35,7 @@
 			<Property Name="ws.version.minor" Type="Int">0</Property>
 			<Item Name="Startup VIs" Type="Startup VIs Container"/>
 			<Item Name="Web Resources" Type="HTTP WebResources Container">
-				<Item Name="getState.vi" Type="VI" URL="../../../../../D/getState.vi">
+				<Item Name="handleGetRequest_sendStatusToClient.vi" Type="VI" URL="../WebService_Endpoints/handleGetRequest_sendStatusToClient.vi">
 					<Property Name="ws.buffered" Type="Bool">true</Property>
 					<Property Name="ws.includeNameInURL" Type="Bool">true</Property>
 					<Property Name="ws.keepInMemory" Type="Bool">true</Property>
@@ -45,11 +47,11 @@
 					<Property Name="ws.requireAPIKey" Type="Bool">false</Property>
 					<Property Name="ws.requiredPrivilege" Type="Str"></Property>
 					<Property Name="ws.type" Type="Int">1</Property>
-					<Property Name="ws.uri" Type="Str">state</Property>
+					<Property Name="ws.uri" Type="Str">status</Property>
 					<Property Name="ws.useHeaders" Type="Bool">true</Property>
 					<Property Name="ws.useStandardURL" Type="Bool">false</Property>
 				</Item>
-				<Item Name="HandlePostRequest.vi" Type="VI" URL="../HandlePostRequest.vi">
+				<Item Name="handlePostRequest_changeServoParameters.vi" Type="VI" URL="../WebService_Endpoints/handlePostRequest_changeServoParameters.vi">
 					<Property Name="ws.buffered" Type="Bool">true</Property>
 					<Property Name="ws.includeNameInURL" Type="Bool">true</Property>
 					<Property Name="ws.keepInMemory" Type="Bool">true</Property>
@@ -61,9 +63,9 @@
 					<Property Name="ws.requireAPIKey" Type="Bool">false</Property>
 					<Property Name="ws.requiredPrivilege" Type="Str"></Property>
 					<Property Name="ws.type" Type="Int">1</Property>
-					<Property Name="ws.uri" Type="Str"></Property>
+					<Property Name="ws.uri" Type="Str">actuator</Property>
 					<Property Name="ws.useHeaders" Type="Bool">true</Property>
-					<Property Name="ws.useStandardURL" Type="Bool">true</Property>
+					<Property Name="ws.useStandardURL" Type="Bool">false</Property>
 				</Item>
 			</Item>
 		</Item>
