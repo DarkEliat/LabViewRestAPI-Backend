@@ -35,7 +35,7 @@
 			<Property Name="ws.version.minor" Type="Int">0</Property>
 			<Item Name="Startup VIs" Type="Startup VIs Container"/>
 			<Item Name="Web Resources" Type="HTTP WebResources Container">
-				<Item Name="handleGetRequest_sendStatusToClient.vi" Type="VI" URL="../WebService_Endpoints/handleGetRequest_sendStatusToClient.vi">
+				<Item Name="GET_sendStatusToClient.vi" Type="VI" URL="../WebService_Endpoints/GET_sendStatusToClient.vi">
 					<Property Name="ws.buffered" Type="Bool">true</Property>
 					<Property Name="ws.includeNameInURL" Type="Bool">true</Property>
 					<Property Name="ws.keepInMemory" Type="Bool">true</Property>
@@ -51,7 +51,7 @@
 					<Property Name="ws.useHeaders" Type="Bool">true</Property>
 					<Property Name="ws.useStandardURL" Type="Bool">false</Property>
 				</Item>
-				<Item Name="handlePostRequest_changeServoParameters.vi" Type="VI" URL="../WebService_Endpoints/handlePostRequest_changeServoParameters.vi">
+				<Item Name="POST_changeServoParameters.vi" Type="VI" URL="../WebService_Endpoints/POST_changeServoParameters.vi">
 					<Property Name="ws.buffered" Type="Bool">true</Property>
 					<Property Name="ws.includeNameInURL" Type="Bool">true</Property>
 					<Property Name="ws.keepInMemory" Type="Bool">true</Property>
