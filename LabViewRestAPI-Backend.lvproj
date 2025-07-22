@@ -17,7 +17,6 @@
 			<Item Name="ServoStatus.ctl" Type="VI" URL="../DataTypes/ServoStatus.ctl"/>
 		</Item>
 		<Item Name="Main.vi" Type="VI" URL="../Main.vi"/>
-		<Item Name="Main__V2.vi" Type="VI" URL="../Main__V2.vi"/>
 		<Item Name="CurrentServoStatus.vi" Type="VI" URL="../CurrentServoStatus.vi"/>
 		<Item Name="ServoControlService" Type="Web Service">
 			<Property Name="ws.autoIncrementVersion" Type="Bool">true</Property>
