@@ -7,56 +7,7 @@
 	},
 	"item": [
 		{
-			"name": "getServoState__V1",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:9090/ValveControlService/state",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9090",
-					"path": [
-						"ValveControlService",
-						"state"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "sendChangeSettingsRequest__V1",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"mode\": \"manual\",\r\n    \"value\": 55,\r\n    \"t_open\": 35.0,\r\n    \"t_clode\": 20.0\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:9090/ValveControlService/HandlePostRequest",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9090",
-					"path": [
-						"ValveControlService",
-						"HandlePostRequest"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "getServoState__V2",
+			"name": "getServoState",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -88,13 +39,13 @@
 			"response": []
 		},
 		{
-			"name": "sendChangeSettingsRequest__V2",
+			"name": "sendChangeStatusRequest",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"mode\": \"manual\",\r\n    \"value\": 22,\r\n    \"t_open\": 35.0,\r\n    \"t_clode\": 20.0\r\n}",
+					"raw": "{\r\n    \"status\":\r\n    {\r\n        \"mode\": \"manual\",\r\n        \"position\": 55\r\n    }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
