@@ -35,7 +35,11 @@
 			<Property Name="ws.version.fix" Type="Int">0</Property>
 			<Property Name="ws.version.major" Type="Int">1</Property>
 			<Property Name="ws.version.minor" Type="Int">0</Property>
-			<Item Name="Startup VIs" Type="Startup VIs Container"/>
+			<Item Name="Startup VIs" Type="Startup VIs Container">
+				<Item Name="Initialization.vi" Type="VI" URL="../WebService_Startup/Initialization.vi">
+					<Property Name="ws.type" Type="Int">2</Property>
+				</Item>
+			</Item>
 			<Item Name="Web Resources" Type="HTTP WebResources Container">
 				<Item Name="GET_sendStatusToClient.vi" Type="VI" URL="../WebService_Endpoints/GET_sendStatusToClient.vi">
 					<Property Name="ws.buffered" Type="Bool">true</Property>
