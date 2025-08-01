@@ -15,9 +15,14 @@
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
 		<Item Name="DataTypes" Type="Folder">
 			<Item Name="ServoStatus.ctl" Type="VI" URL="../DataTypes/ServoStatus.ctl"/>
+			<Item Name="OperationTypeForFunctionalGlobalVariable.ctl" Type="VI" URL="../DataTypes/OperationTypeForFunctionalGlobalVariable.ctl"/>
+			<Item Name="AutoModeParameters.ctl" Type="VI" URL="../DataTypes/AutoModeParameters.ctl"/>
+		</Item>
+		<Item Name="FunctionalGlobalVariables" Type="Folder">
+			<Item Name="CurrentServoStatus.vi" Type="VI" URL="../FunctionalGlobalVariables/CurrentServoStatus.vi"/>
+			<Item Name="CurrentAutoModeParameters.vi" Type="VI" URL="../FunctionalGlobalVariables/CurrentAutoModeParameters.vi"/>
 		</Item>
 		<Item Name="Main.vi" Type="VI" URL="../Main.vi"/>
-		<Item Name="CurrentServoStatus.vi" Type="VI" URL="../CurrentServoStatus.vi"/>
 		<Item Name="ServoControlService" Type="Web Service">
 			<Property Name="ws.autoIncrementVersion" Type="Bool">true</Property>
 			<Property Name="ws.disconnectInline" Type="Bool">true</Property>
@@ -36,12 +41,12 @@
 			<Property Name="ws.version.major" Type="Int">1</Property>
 			<Property Name="ws.version.minor" Type="Int">0</Property>
 			<Item Name="Startup VIs" Type="Startup VIs Container">
-				<Item Name="Initialization.vi" Type="VI" URL="../WebService_Startup/Initialization.vi">
+				<Item Name="Initialization.vi" Type="VI" URL="../WebService/Startup/Initialization.vi">
 					<Property Name="ws.type" Type="Int">2</Property>
 				</Item>
 			</Item>
 			<Item Name="Web Resources" Type="HTTP WebResources Container">
-				<Item Name="GET_sendStatusToClient.vi" Type="VI" URL="../WebService_Endpoints/GET_sendStatusToClient.vi">
+				<Item Name="GET_sendStatusToClient.vi" Type="VI" URL="../WebService/Endpoints/GET_sendStatusToClient.vi">
 					<Property Name="ws.buffered" Type="Bool">true</Property>
 					<Property Name="ws.includeNameInURL" Type="Bool">true</Property>
 					<Property Name="ws.keepInMemory" Type="Bool">true</Property>
@@ -57,7 +62,7 @@
 					<Property Name="ws.useHeaders" Type="Bool">true</Property>
 					<Property Name="ws.useStandardURL" Type="Bool">false</Property>
 				</Item>
-				<Item Name="POST_changeServoStatus.vi" Type="VI" URL="../WebService_Endpoints/POST_changeServoStatus.vi">
+				<Item Name="POST_changeServoStatus.vi" Type="VI" URL="../WebService/Endpoints/POST_changeServoStatus.vi">
 					<Property Name="ws.buffered" Type="Bool">true</Property>
 					<Property Name="ws.includeNameInURL" Type="Bool">true</Property>
 					<Property Name="ws.keepInMemory" Type="Bool">true</Property>
@@ -75,18 +80,19 @@
 				</Item>
 			</Item>
 		</Item>
+		<Item Name="AutoMode.vi" Type="VI" URL="../AutoMode.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
-				<Item Name="comparison.ctl" Type="VI" URL="/&lt;vilib&gt;/express/express shared/comparison.ctl"/>
-				<Item Name="DWDT Error Code.vi" Type="VI" URL="/&lt;vilib&gt;/Waveform/DWDTOps.llb/DWDT Error Code.vi"/>
-				<Item Name="Dynamic To Waveform Array.vi" Type="VI" URL="/&lt;vilib&gt;/express/express shared/transition.llb/Dynamic To Waveform Array.vi"/>
+				<Item Name="NI_WebServices.lvlib" Type="Library" URL="/&lt;vilib&gt;/wsapi/NI_WebServices.lvlib"/>
 				<Item Name="Error Cluster From Error Code.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Error Cluster From Error Code.vi"/>
 				<Item Name="ex_CorrectErrorChain.vi" Type="VI" URL="/&lt;vilib&gt;/express/express shared/ex_CorrectErrorChain.vi"/>
-				<Item Name="ex_Modify Signal Name.vi" Type="VI" URL="/&lt;vilib&gt;/express/express shared/ex_Modify Signal Name.vi"/>
-				<Item Name="NI_WebServices.lvlib" Type="Library" URL="/&lt;vilib&gt;/wsapi/NI_WebServices.lvlib"/>
-				<Item Name="subComparison.vi" Type="VI" URL="/&lt;vilib&gt;/express/express arith-compare/ComparisonBlock.llb/subComparison.vi"/>
 				<Item Name="Waveform Array To Dynamic.vi" Type="VI" URL="/&lt;vilib&gt;/express/express shared/transition.llb/Waveform Array To Dynamic.vi"/>
+				<Item Name="DWDT Error Code.vi" Type="VI" URL="/&lt;vilib&gt;/Waveform/DWDTOps.llb/DWDT Error Code.vi"/>
 				<Item Name="Waveform Scalar Limit Comparison.vi" Type="VI" URL="/&lt;vilib&gt;/Waveform/WDTOps.llb/Waveform Scalar Limit Comparison.vi"/>
+				<Item Name="ex_Modify Signal Name.vi" Type="VI" URL="/&lt;vilib&gt;/express/express shared/ex_Modify Signal Name.vi"/>
+				<Item Name="Dynamic To Waveform Array.vi" Type="VI" URL="/&lt;vilib&gt;/express/express shared/transition.llb/Dynamic To Waveform Array.vi"/>
+				<Item Name="comparison.ctl" Type="VI" URL="/&lt;vilib&gt;/express/express shared/comparison.ctl"/>
+				<Item Name="subComparison.vi" Type="VI" URL="/&lt;vilib&gt;/express/express arith-compare/ComparisonBlock.llb/subComparison.vi"/>
 			</Item>
 			<Item Name="ws_runtime.dll" Type="Document" URL="ws_runtime.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
