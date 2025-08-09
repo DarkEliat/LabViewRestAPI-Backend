@@ -7,65 +7,126 @@
 	},
 	"item": [
 		{
-			"name": "getServoState",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "Server_ESP32",
+			"item": [
+				{
+					"name": "getServoState",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.0.13/status",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"13"
+							],
+							"path": [
+								"status"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:9090/ServoControlService/status",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9090",
-					"path": [
-						"ServoControlService",
-						"status"
-					]
+				{
+					"name": "sendChangeStatusRequest",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\":\r\n    {\r\n        \"mode\": \"manual\",\r\n        \"position\": 144\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://192.168.0.13/actuator",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"13"
+							],
+							"path": [
+								"actuator"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "sendChangeStatusRequest",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"status\":\r\n    {\r\n        \"mode\": \"manual\",\r\n        \"position\": 55\r\n    }\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "Server_LabView",
+			"item": [
+				{
+					"name": "getServoState",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/ServoControlService/status",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"ServoControlService",
+								"status"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:9090/ServoControlService/actuator",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9090",
-					"path": [
-						"ServoControlService",
-						"actuator"
-					]
+				{
+					"name": "sendChangeStatusRequest",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\":\r\n    {\r\n        \"mode\": \"manual\",\r\n        \"position\": 55\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/ServoControlService/actuator",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"ServoControlService",
+								"actuator"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		}
 	]
 }
