@@ -17,10 +17,26 @@
 			<Item Name="ServoStatus.ctl" Type="VI" URL="../DataTypes/ServoStatus.ctl"/>
 			<Item Name="OperationTypeForFunctionalGlobalVariable.ctl" Type="VI" URL="../DataTypes/OperationTypeForFunctionalGlobalVariable.ctl"/>
 			<Item Name="AutoModeParameters.ctl" Type="VI" URL="../DataTypes/AutoModeParameters.ctl"/>
+			<Item Name="ServoConnectionParameters.ctl" Type="VI" URL="../DataTypes/ServoConnectionParameters.ctl"/>
+			<Item Name="WebServiceStatus.ctl" Type="VI" URL="../DataTypes/WebServiceStatus.ctl"/>
 		</Item>
 		<Item Name="FunctionalGlobalVariables" Type="Folder">
 			<Item Name="CurrentServoStatus.vi" Type="VI" URL="../FunctionalGlobalVariables/CurrentServoStatus.vi"/>
 			<Item Name="CurrentAutoModeParameters.vi" Type="VI" URL="../FunctionalGlobalVariables/CurrentAutoModeParameters.vi"/>
+			<Item Name="CurrentServoConnectionParameters.vi" Type="VI" URL="../FunctionalGlobalVariables/CurrentServoConnectionParameters.vi"/>
+			<Item Name="CurrentWebServiceStatus.vi" Type="VI" URL="../FunctionalGlobalVariables/CurrentWebServiceStatus.vi"/>
+		</Item>
+		<Item Name="config" Type="Folder">
+			<Item Name="app.local.ini" Type="Document" URL="../config/app.local.ini"/>
+		</Item>
+		<Item Name="ServoCommunication" Type="Folder">
+			<Item Name="Endpoints" Type="Folder">
+				<Item Name="GET_receive_ServoStatus_fromServo.vi" Type="VI" URL="../ServoCommunication/Endpoints/GET_receive_ServoStatus_fromServo.vi"/>
+				<Item Name="POST_sendNew_ServoStatus_toServo.vi" Type="VI" URL="../ServoCommunication/Endpoints/POST_sendNew_ServoStatus_toServo.vi"/>
+			</Item>
+			<Item Name="Startup" Type="Folder">
+				<Item Name="ServoCommunication_Initialization.vi" Type="VI" URL="../ServoCommunication/Startup/ServoCommunication_Initialization.vi"/>
+			</Item>
 		</Item>
 		<Item Name="Main.vi" Type="VI" URL="../Main.vi"/>
 		<Item Name="ServoControlService" Type="Web Service">
@@ -41,12 +57,12 @@
 			<Property Name="ws.version.major" Type="Int">1</Property>
 			<Property Name="ws.version.minor" Type="Int">0</Property>
 			<Item Name="Startup VIs" Type="Startup VIs Container">
-				<Item Name="Initialization.vi" Type="VI" URL="../WebService/Startup/Initialization.vi">
+				<Item Name="WebService_Initialization.vi" Type="VI" URL="../WebService/Startup/WebService_Initialization.vi">
 					<Property Name="ws.type" Type="Int">2</Property>
 				</Item>
 			</Item>
 			<Item Name="Web Resources" Type="HTTP WebResources Container">
-				<Item Name="GET_sendStatusToClient.vi" Type="VI" URL="../WebService/Endpoints/GET_sendStatusToClient.vi">
+				<Item Name="GET_send_ServoStatus_toClient.vi" Type="VI" URL="../WebService/Endpoints/GET_send_ServoStatus_toClient.vi">
 					<Property Name="ws.buffered" Type="Bool">true</Property>
 					<Property Name="ws.includeNameInURL" Type="Bool">true</Property>
 					<Property Name="ws.keepInMemory" Type="Bool">true</Property>
@@ -62,7 +78,7 @@
 					<Property Name="ws.useHeaders" Type="Bool">true</Property>
 					<Property Name="ws.useStandardURL" Type="Bool">false</Property>
 				</Item>
-				<Item Name="POST_changeServoStatus.vi" Type="VI" URL="../WebService/Endpoints/POST_changeServoStatus.vi">
+				<Item Name="POST_receiveNew_ServoStatus_fromClient.vi" Type="VI" URL="../WebService/Endpoints/POST_receiveNew_ServoStatus_fromClient.vi">
 					<Property Name="ws.buffered" Type="Bool">true</Property>
 					<Property Name="ws.includeNameInURL" Type="Bool">true</Property>
 					<Property Name="ws.keepInMemory" Type="Bool">true</Property>
@@ -93,6 +109,19 @@
 				<Item Name="Dynamic To Waveform Array.vi" Type="VI" URL="/&lt;vilib&gt;/express/express shared/transition.llb/Dynamic To Waveform Array.vi"/>
 				<Item Name="comparison.ctl" Type="VI" URL="/&lt;vilib&gt;/express/express shared/comparison.ctl"/>
 				<Item Name="subComparison.vi" Type="VI" URL="/&lt;vilib&gt;/express/express arith-compare/ComparisonBlock.llb/subComparison.vi"/>
+				<Item Name="NI_PackedLibraryUtility.lvlib" Type="Library" URL="/&lt;vilib&gt;/Utility/LVLibp/NI_PackedLibraryUtility.lvlib"/>
+				<Item Name="NI_FileType.lvlib" Type="Library" URL="/&lt;vilib&gt;/Utility/lvfile.llb/NI_FileType.lvlib"/>
+				<Item Name="Check if File or Folder Exists.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/libraryn.llb/Check if File or Folder Exists.vi"/>
+				<Item Name="Path To Command Line String.vi" Type="VI" URL="/&lt;vilib&gt;/AdvancedString/Path To Command Line String.vi"/>
+				<Item Name="LabVIEWHTTPClient.lvlib" Type="Library" URL="/&lt;vilib&gt;/httpClient/LabVIEWHTTPClient.lvlib"/>
+				<Item Name="PathToUNIXPathString.vi" Type="VI" URL="/&lt;vilib&gt;/Platform/CFURL.llb/PathToUNIXPathString.vi"/>
+				<Item Name="8.6CompatibleGlobalVar.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/config.llb/8.6CompatibleGlobalVar.vi"/>
+				<Item Name="NI_LVConfig.lvlib" Type="Library" URL="/&lt;vilib&gt;/Utility/config.llb/NI_LVConfig.lvlib"/>
+				<Item Name="Clear Errors.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Clear Errors.vi"/>
+				<Item Name="Trim Whitespace One-Sided.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Trim Whitespace One-Sided.vi"/>
+				<Item Name="whitespace.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/whitespace.ctl"/>
+				<Item Name="Trim Whitespace.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Trim Whitespace.vi"/>
+				<Item Name="Application Directory.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Application Directory.vi"/>
 			</Item>
 			<Item Name="ws_runtime.dll" Type="Document" URL="ws_runtime.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
