@@ -19,15 +19,20 @@
 			<Item Name="AutoModeParameters.ctl" Type="VI" URL="../DataTypes/AutoModeParameters.ctl"/>
 			<Item Name="ServoConnectionParameters.ctl" Type="VI" URL="../DataTypes/ServoConnectionParameters.ctl"/>
 			<Item Name="WebServiceStatus.ctl" Type="VI" URL="../DataTypes/WebServiceStatus.ctl"/>
+			<Item Name="ServoConnectionStatus.ctl" Type="VI" URL="../DataTypes/ServoConnectionStatus.ctl"/>
+			<Item Name="AllServoData.ctl" Type="VI" URL="../DataTypes/AllServoData.ctl"/>
 		</Item>
 		<Item Name="FunctionalGlobalVariables" Type="Folder">
 			<Item Name="CurrentServoStatus.vi" Type="VI" URL="../FunctionalGlobalVariables/CurrentServoStatus.vi"/>
 			<Item Name="CurrentAutoModeParameters.vi" Type="VI" URL="../FunctionalGlobalVariables/CurrentAutoModeParameters.vi"/>
 			<Item Name="CurrentServoConnectionParameters.vi" Type="VI" URL="../FunctionalGlobalVariables/CurrentServoConnectionParameters.vi"/>
 			<Item Name="CurrentWebServiceStatus.vi" Type="VI" URL="../FunctionalGlobalVariables/CurrentWebServiceStatus.vi"/>
+			<Item Name="CurrentServoConnectionStatus.vi" Type="VI" URL="../FunctionalGlobalVariables/CurrentServoConnectionStatus.vi"/>
+			<Item Name="CurrentAllServoData.vi" Type="VI" URL="../FunctionalGlobalVariables/CurrentAllServoData.vi"/>
 		</Item>
 		<Item Name="config" Type="Folder">
 			<Item Name="app.local.ini" Type="Document" URL="../config/app.local.ini"/>
+			<Item Name="app.local.ini.example" Type="Document" URL="../config/app.local.ini.example"/>
 		</Item>
 		<Item Name="ServoCommunication" Type="Folder">
 			<Item Name="Endpoints" Type="Folder">
@@ -62,7 +67,7 @@
 				</Item>
 			</Item>
 			<Item Name="Web Resources" Type="HTTP WebResources Container">
-				<Item Name="GET_send_ServoStatus_toClient.vi" Type="VI" URL="../WebService/Endpoints/GET_send_ServoStatus_toClient.vi">
+				<Item Name="GET_send_AllServoData_toClient.vi" Type="VI" URL="../WebService/Endpoints/GET_send_AllServoData_toClient.vi">
 					<Property Name="ws.buffered" Type="Bool">true</Property>
 					<Property Name="ws.includeNameInURL" Type="Bool">true</Property>
 					<Property Name="ws.keepInMemory" Type="Bool">true</Property>
@@ -96,7 +101,6 @@
 				</Item>
 			</Item>
 		</Item>
-		<Item Name="AutoMode.vi" Type="VI" URL="../AutoMode.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="NI_WebServices.lvlib" Type="Library" URL="/&lt;vilib&gt;/wsapi/NI_WebServices.lvlib"/>
